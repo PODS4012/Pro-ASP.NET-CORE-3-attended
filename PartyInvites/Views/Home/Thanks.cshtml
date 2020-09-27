@@ -1,0 +1,27 @@
+﻿@model PartyInvites.Models.GuestResponse
+@{Layout = null;}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <div>
+        @*The HTML produced by the Thanks.cshtml view depends on the values assigned to the 
+            GuestResponse view model provided by the RsvpForm action method. 
+            To access the value of a property in the domain object, I use an @Model.<PropertyName> expression.
+            So, for example, to get the value of the Name property, I use the @Model.Name expression*@
+        <h1>Thank you, @Model.Name!</h1>
+        @if (Model.WillAttend == true)
+        {
+            @:It's great that you're coming. The drinks are already in the fridge!
+        }
+        else
+        {
+            @:Sorry to hear that you can't make it, but thanks for letting us know.'
+        }
+    </div>
+    Click <a asp-action="ListResponses">here</a> to see who is comming.
+</body>
+</html>
