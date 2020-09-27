@@ -4,34 +4,47 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <!--The link element uses the href attribute to specify the location of the stylesheet. Notice that the wwwroot folder is omitted
+        from the URL. The default configuration for ASP.NET includes support for serving static content, such as images, CSS stylesheets,
+        and JavaScript files, and it maps requests to the wwwroot folder automatically. With the application of the stylesheet, a more obvious
+        validation error will be displayed when data is submitted that causes a validation error-->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
     <title>RsvpForm</title>
 </head>
 <body>
-    @*asp-action attribute applied to the form element, which uses the application’s URL routing
-    configuration to set the action attribute to a URL that will target a specific action method*@
-    <form asp-action="RsvpForm" method="post">
-        <div>
-            @*The tag helper attributes configure the elements to tie them to the view model object.*@
+    <h5 class="bg-primary text-white text-center m-2 p-2">RSVP</h5>
+    <!--asp-action attribute applied to the form element, which uses the application’s URL routing
+        configuration to set the action attribute to a URL that will target a specific action method-->
+    <form asp-action="RsvpForm" method="post" class="m-2">
+
+        <!--The asp-validation-summary attribute is applied to a div element, and it displays a list of validation errors when the view
+        is rendered. The value for the asp-validation-summary attribute is a value from an enumeration called ValidationSummary,
+        which specifies what types of validation errors the summary will contain. I specified All, which is a good starting point for most
+        applications, and I describe the other values and explain how they work in Chapter 29.-->
+        <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <!--The tag helper attributes configure the elements to tie them to the view model object-->
             <label asp-for="Name">Your name:</label>
-            <input asp-for="Name" />
+            <input asp-for="Name" class="form-control" />
         </div>
-        <div>
+        <div class="form-group">
             <label asp-for="Email">Your email:</label>
-            <input asp-for="Email" />
+            <input asp-for="Email" class="form-control" />
         </div>
-        <div>
+        <div class="form-group">
             <label asp-for="Phone">Your phone:</label>
-            <input asp-for="Phone" />
+            <input asp-for="Phone" class="form-control" />
         </div>
-        <div>
+        <div class="form-group">
             <label>Will you attend?</label>
-            <select asp-for="WillAttend">
+            <select asp-for="WillAttend" class="form-control">
                 <option value="">Choose an option</option>
                 <option value="true">Yes, I'll be there</option>
                 <option value="false">No, I can't come</option>
             </select>
         </div>
-        <button type="submit">Submit RSVP</button>
+        <button type="submit" class="btn btn-primary">Submit RSVP</button>
     </form>
 </body>
 </html>

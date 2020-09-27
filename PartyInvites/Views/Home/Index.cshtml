@@ -2,17 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width" />
-<title>Party!</title>
+    <meta name="viewport" content="width=device-width" />
+    <!--The basic Bootstrap features work by applying classes to elements that correspond to CSS selectors defined in the files added to the
+    wwwroot/lib/bootstrap folder-->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>Party!</title>
 </head>
 <body>
-<div>
-    <div>
-        We're going to have an exciting party.<br />
-        (To do: sell it better. Add pictures or something.)
+    <div class="text-center">
+        <h3> We're going to have an exciting party!</h3>
+        <h4>And YOU are invited!</h4>
+        <!-- The asp-action attribute is an instruction to add an href attribute to the a element that contains a URL for an action method -->
+        <a class="btn btn-primary" asp-action="RsvpForm">RSVP Now</a>
     </div>
-    <!-- The asp-action attribute is an instruction to add an href attribute to the a element that contains a URL for an action method -->
-    <a asp-action="RsvpForm">RSVP Now</a>
-</div>
 </body>
 </html>
