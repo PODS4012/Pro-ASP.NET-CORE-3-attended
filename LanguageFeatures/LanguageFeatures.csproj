@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    
+    <!--The string? type is nullable, while string is not, which means that the code that consumes a variable doesn’t have to worry
+        about null values unless it is dealing with a nullable type. To enable nullable reference types, an element must be added to the csproj file-->
+    <Nullable>enable</Nullable>
+    
   </PropertyGroup>
 
 </Project>

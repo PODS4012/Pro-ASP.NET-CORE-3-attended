@@ -7,8 +7,19 @@ namespace LanguageFeatures.Models
 {
     public class Product
     {
+        //The InStock property is initialized to true and cannot be changed; however, the value can be assigned to in the type’s constructor.
+        public Product(bool stock = true)
+        {
+            InStock = stock;
+        }
         public string Name { get; set; }
+
+        //Automatically implemented properties have been supported since C# 3.0. The latest version of C# supports initializers for automatically implemented properties, which allows an initial value to be set without having to use the constructor.
+        public string Category { get; set; } = "Watersports";
         public decimal? Price { get; set; }
+
+        //You can create a read-only property by using an initializer and omitting the set keyword from an auto-implemented property that has an initializer.
+        public bool InStock { get; } //= true;
         //The null conditional operator can be chained to navigate through a hierarchy of objects, which is where it becomes an effective tool for simplifying code and allowing safe navigation. I have added a property to the Product class that creates a more complex object hierarchy.
         public Product Related { get; set; }
         public static Product[] GetProducts()
@@ -16,9 +27,12 @@ namespace LanguageFeatures.Models
             Product kayak = new Product
             {
                 Name = "Kayak",
+                Category = "Water Craft",
                 Price = 275M
             };
-            Product lifejacket = new Product
+
+            //The constructor allows the value for the read-only property to be specified as an argument and defaults to true if no value is provided.The property value cannot be changed once set by the constructor.
+            Product lifejacket = new Product(false)
             {
                 Name = "Lifejacket",
                 Price = 48.95M
