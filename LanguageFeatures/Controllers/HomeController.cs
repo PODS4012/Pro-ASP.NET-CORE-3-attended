@@ -6,6 +6,8 @@ namespace LanguageFeatures.Controllers
 {
     public class HomeController : Controller
     {
+
+        #region Index
         public ViewResult Index()
         {
             //return View(new string[] { "C#", "Language", "Features"});
@@ -31,43 +33,53 @@ namespace LanguageFeatures.Controllers
                 results.Add($"Name: {name}, Price: {price}, Related: {relatedName}");
             }
             return View(results);
-
-
-            /*Using an Index Initializer*/
-            //Recent versions of C# tidy up the way collections that use indexes, such as dictionaries
-
-            //Dictionary<string, Product> products = new Dictionary<string, Product> {
-            //    { "Kayak", new Product { Name = "Kayak", Price = 275M } },
-            //    { "Lifejacket", new Product{ Name = "Lifejacket", Price = 48.95M } }
-            //};
-            //return View("Index", products.Keys);
-
-            //The syntax for initializing this type of collection relies too much on the { and } characters, especially when the collection values are created using object initializers. The latest versions of C# support a more natural approach to initializing indexed collections that is consistent with the way that values are retrieved or modified once the collection has been initialized.
-            //Dictionary<string, Product> products = new Dictionary<string, Product>
-            //{
-            //    ["Kayak"] = new Product { Name = "Kayak", Price = 275M },
-            //    ["Lifejacket"] = new Product { Name = "Lifejacket", Price = 48.95M }
-            //};
-            //return View("Index", products.Keys);
-
-            /*Pattern Matching*/
-            //One of the most useful recent additions to C# is support for pattern matching, which can be used to test that an object is of a specific type or has specific characteristics.This is another form of syntactic sugar, and it can dramatically simplify complex blocks of conditional statements. The is keyword is used to perform a type test.
-
-            object[] data = new object[] { 275M, 29.95M, "apple", "orange", 100, 10 };
-            decimal total = 0;
-            for (int i = 0; i < data.Length; i++)
-            {
-                //The is keyword performs a type check and, if a value is of the specified type, will assign the value to a new variable
-                if (data[i] is decimal d)
-                {
-                    total += d;
-                }
-            }
-            return View("Index", new string[] { $"Total: {total:C2}" });
-
-            //This expression evaluates as true if the value stored in data[i] is a decimal. The value of data[i] will be assigned to the variable d, which allows it to be used in subsequent statements without needing to perform any type conversions.The is keyword will match only the specified type, which means that only two of the values in the data array will be processed(the other items in the array are string and int values). If you run the application, you will see the following output in the browser window:
-
-            // Total: $304.95
         }
+        #endregion
+
+        #region Using an Index Initializer
+        //public ViewResult Index()
+        //{
+        //    /*Using an Index Initializer*/
+        //    //Recent versions of C# tidy up the way collections that use indexes, such as dictionaries
+
+        //    Dictionary<string, Product> products = new Dictionary<string, Product> {
+        //        { "Kayak", new Product { Name = "Kayak", Price = 275M } },
+        //        { "Lifejacket", new Product{ Name = "Lifejacket", Price = 48.95M } }
+        //    };
+        //    return View("Index", products.Keys);
+
+        //    //The syntax for initializing this type of collection relies too much on the { and } characters, especially when the collection values are created using object initializers. The latest versions of C# support a more natural approach to initializing indexed collections that is consistent with the way that values are retrieved or modified once the collection has been initialized.
+        //    Dictionary<string, Product> products = new Dictionary<string, Product>
+        //    {
+        //        ["Kayak"] = new Product { Name = "Kayak", Price = 275M },
+        //        ["Lifejacket"] = new Product { Name = "Lifejacket", Price = 48.95M }
+        //    };
+        //    return View("Index", products.Keys);
+        //}
+        #endregion
+
+        #region Pattern Matching
+        //public ViewResult Index()
+        //{
+        //    /*Pattern Matching*/
+        //    //One of the most useful recent additions to C# is support for pattern matching, which can be used to test that an object is of a specific type or has specific characteristics.This is another form of syntactic sugar, and it can dramatically simplify complex blocks of conditional statements. The is keyword is used to perform a type test.
+
+        //    object[] data = new object[] { 275M, 29.95M, "apple", "orange", 100, 10 };
+        //    decimal total = 0;
+        //    for (int i = 0; i < data.Length; i++)
+        //    {
+        //        //The is keyword performs a type check and, if a value is of the specified type, will assign the value to a new variable
+        //        if (data[i] is decimal d)
+        //        {
+        //            total += d;
+        //        }
+        //    }
+        //    return View("Index", new string[] { $"Total: {total:C2}" });
+
+        //    //This expression evaluates as true if the value stored in data[i] is a decimal. The value of data[i] will be assigned to the variable d, which allows it to be used in subsequent statements without needing to perform any type conversions.The is keyword will match only the specified type, which means that only two of the values in the data array will be processed(the other items in the array are string and int values). If you run the application, you will see the following output in the browser window:
+
+        //    // Total: $304.95
+        //}
+        #endregion
     }
 }
